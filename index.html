@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Grafo Mapa</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+  </head>
+  <body>
+    <div class="content-grid">
+      <h2 class="head-title">Mapa de México (Grafo no dirigido ponderado) AAC</h2>
+        <div class="menu">
+          <h3>Menú:</h3>
+            <div class="radio-group">
+              <label id="radios_vertex" class="radios" for="radio_vertex" onclick="isMenuRadioChecked(radio_vertex, radio_connection)">
+                <input type="radio" id="radio_vertex" name="radioA" checked/><span>Nodos</span>
+              </label>
+              <label id="radios_connection" class="radios" for="radio_connection" onclick="isMenuRadioChecked(radio_vertex, radio_connection)">
+                <input type="radio" id="radio_connection" name="radioA"/><span>Conexiones</span>
+              </label>
+            </div>
+            <div id="show_vertexes" class="show-vertexes">
+              <div class="current-vertexes"></div>
+              <div class="insert-vertex">
+                <p class="insert-p">Insertar Nodo: </p>
+                <span class="menu-span">Nombre: </span><input type="text" id="vertex_name" placeholder="Ej. Zacatecas" required/>
+                <input type="submit" value="Agregar" onclick="addNewNode()"/>
+              </div>
+              <br>
+              <div>
+                <p class="insert-p">Mejor camino: </p>
+                <label class="radios" for="best_path_distance">
+                  <input type="radio" id="best_path_distance" name="radioB" checked/><span>Distancia</span>
+                </label>
+                <label id="radios_connection" class="radios" for="best_path_time">
+                  <input type="radio" id="best_path_time" name="radioB"/><span>Tiempo</span>
+                </label>
+                <label id="radios_connection" class="radios" for="best_path_cost">
+                  <input type="radio" id="best_path_cost" name="radioB"/><span>Costo</span>
+                </label>
+                <br>
+                <span class="menu-span">Desde: </span><input type="text" id="best_path_node1" placeholder="Ej. Aguascalientes" required/>
+                <br>
+                <span class="menu-span">Hasta: </span><input type="text" id="best_path_node2" placeholder="Ej. Zacatecas" required/>
+                <br>
+                <input type="submit" value="Mostrar" onclick="findBestPath()"/>
+                <br><br>
+                <p class="insert-p">El mejor camino actual mostrado es: </p>
+                <p id="current_best_path"></p>
+                <br>
+                <p id="current_best_path_track"></p>
+              </div>
+            </div>
+            <div id="show_connections" class="show-connections">
+              <div class="connection">
+                <p class="insert-p">Insertar Conexión entre nodos: </p>
+                <span class="menu-span">Nodo 1: </span><input type="text" id="vertex_1" placeholder="Ej. Aguascalientes" required/>
+                <br>
+                <span class="menu-span">Nodo 2: </span><input type="text" id="vertex_2" placeholder="Ej. Zacatecas" required/>
+                <br>
+                <span class="menu-span">Distancia en kilómetros: </span><input type="number" id="distance" placeholder="110 (km)" required/>
+                <br>
+                <span class="menu-span">Tiempo en minutos: </span><input type="number" id="time" placeholder="120 (minutos)" required/>
+                <br>
+                <span class="menu-span">Costo: </span><input type="number" id="cost" placeholder="$300" required/>
+                <input type="submit" value="Conectar" onclick="addNewConnection()"/>
+              </div>
+              <div class="current-connections">
+                <ul id="connections_list">
+                </ul>
+              </div>
+            </div>
+        </div>
+        <div class="graph" id="graph"></div>
+    </div>
+    <!--Vis.js--> 
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script type="text/javascript" src="Grafo.js"></script>
+    <script type="text/javascript" src="drawGraph.js"></script>
+    <script type="text/javascript" src="front-end.js"></script>
+  </body>
+</html>

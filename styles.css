@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+* {
+    margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+
+/*CSS Start*/
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.head-title {
+    text-align: center;
+    grid-area: head-title;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-areas:
+        'head-title head-title head-title head-title'
+        'menu graph graph graph';
+}
+
+.menu {
+    padding: 10px 12px;
+    margin: 10px 0;
+    grid-area: menu;
+    border: 1px solid lightgray;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.menu-span {
+    font-weight: bold;
+}
+
+.radio-group, .radios {
+    margin: 10px 5px 10px 0;
+}
+
+.insert-p {
+    font-weight: bold;
+    padding: 13px 0 5px 0;
+    border-top: 1px solid lightgray;
+}
+
+.show-connections {
+    display: none;
+}
+
+.current-vertexes, .current-connections {
+    padding: 10px 0 10px 0;
+}
+
+.graph {
+    /*width: 700px;*/
+    height: 900px;
+    border: 1px solid lightgray;
+    grid-area: graph;
+    margin: 10px 0;
+}
+
+.connection {
+    margin: 5px 0 5px 0;
+}
+
+#connections_list li {
+    padding: 0 0 12px 0;
+}
+
+#current_best_path_track {
+    max-width: 300px;
+}
